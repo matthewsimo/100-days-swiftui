@@ -30,6 +30,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
+            
                 Section {
                     TextField("Amount", value: $checkAmount, format: asCurrency)
                         .keyboardType(.decimalPad)

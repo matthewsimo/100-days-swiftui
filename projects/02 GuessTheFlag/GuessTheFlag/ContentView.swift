@@ -7,6 +7,33 @@
 
 import SwiftUI
 
+struct BigTitle: ViewModifier {
+    let weight: Font.Weight
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle.weight(weight))
+            .foregroundColor(.white)
+    }
+}
+
+extension View {
+    func titleStyle(weight: Font.Weight) -> some View {
+        modifier(BigTitle(weight: weight))
+    }
+}
+
+struct FlagImage: View {
+    
+    let country:String;
+    
+    var body: some View {
+        
+        Image(country).renderingMode(.original)
+            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 50))).shadow(radius: 5)
+        
+    }
+}
+
 struct ContentView: View {
     @State private var score = 0
     @State private var showingScore = false
@@ -29,8 +56,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Guess the Flag")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                    .titleStyle(weight: .bold)
                 
                 Spacer()
                 
@@ -39,19 +65,17 @@ struct ContentView: View {
                         Text("Tap the flag of")
                             .foregroundStyle(.secondary)
                             .font(.subheadline.weight(.heavy))
-                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .shadow(radius: 10)
                         Text(countries[correctAnswer])
-                            .foregroundStyle(.secondary)
-                            .font(.largeTitle.weight(.semibold))
-                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            .titleStyle(weight: .semibold)
+                            .shadow(radius: 8)
                     }
                     
                     ForEach(0..<3) { number in
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number]).renderingMode(.original)
-                                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 50))).shadow(radius: 5)
+                            FlagImage(country: countries[number])
                         }
                     }
                 }

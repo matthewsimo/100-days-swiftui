@@ -42,6 +42,12 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     
+    @State private var currentFlag = -1
+    @State private var scale = 0.8
+    @State private var opacity = 1.0
+    @State private var rotation = 0.0
+    
+    
     var body: some View {
         ZStack {
             LinearGradient(stops: [
@@ -71,11 +77,28 @@ struct ContentView: View {
                             .shadow(radius: 8)
                     }
                     
-                    ForEach(0..<3) { number in
+                    ForEach(0..<3) { num in
                         Button {
-                            flagTapped(number)
+                            currentFlag = num
+                            flagTapped(num)
+                            withAnimation {
+                                scale = 0.8
+                                opacity = 0.25
+                                rotation = 360.0
+                            }
                         } label: {
-                            FlagImage(country: countries[number])
+                            FlagImage(country: countries[num])
+                        }
+                        .scaleEffect(currentFlag == num ? 1.2 : scale)
+                        .opacity(currentFlag == num ? 1.0 : opacity)
+                        .rotation3DEffect(
+                            .degrees(currentFlag == num ? rotation : 0.0),
+                            axis: (x: 0, y: 1, z: 0)
+                        )
+                        .onAppear {
+                            withAnimation {
+                                scale = 1.0
+                            }
                         }
                     }
                 }
@@ -112,8 +135,16 @@ struct ContentView: View {
     }
     
     func askQuestion() {
+        initAnimationValues()
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func initAnimationValues() {
+        currentFlag = -1
+        scale = 1.0
+        opacity = 1.0
+        rotation = 0.0
     }
 }
 

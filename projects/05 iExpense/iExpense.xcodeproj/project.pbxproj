@@ -14,6 +14,8 @@
 		155519FD2A587A03006D22D6 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155519FC2A587A03006D22D6 /* ExpenseItem.swift */; };
 		155519FF2A587A2E006D22D6 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155519FE2A587A2E006D22D6 /* Expenses.swift */; };
 		15551A012A587C55006D22D6 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15551A002A587C55006D22D6 /* AddView.swift */; };
+		15551A032A58937A006D22D6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15551A022A58937A006D22D6 /* Utils.swift */; };
+		15551A052A589904006D22D6 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15551A042A589904006D22D6 /* ExpenseItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		155519FC2A587A03006D22D6 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		155519FE2A587A2E006D22D6 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		15551A002A587C55006D22D6 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		15551A022A58937A006D22D6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		15551A042A589904006D22D6 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,9 @@
 			children = (
 				155519EE2A58728D006D22D6 /* iExpenseApp.swift */,
 				155519F02A58728D006D22D6 /* ContentView.swift */,
+				15551A042A589904006D22D6 /* ExpenseItemView.swift */,
 				15551A002A587C55006D22D6 /* AddView.swift */,
+				15551A022A58937A006D22D6 /* Utils.swift */,
 				155519FC2A587A03006D22D6 /* ExpenseItem.swift */,
 				155519FE2A587A2E006D22D6 /* Expenses.swift */,
 				155519F22A587290006D22D6 /* Assets.xcassets */,
@@ -146,11 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15551A052A589904006D22D6 /* ExpenseItemView.swift in Sources */,
 				155519FF2A587A2E006D22D6 /* Expenses.swift in Sources */,
 				155519F12A58728D006D22D6 /* ContentView.swift in Sources */,
 				15551A012A587C55006D22D6 /* AddView.swift in Sources */,
 				155519FD2A587A03006D22D6 /* ExpenseItem.swift in Sources */,
 				155519EF2A58728D006D22D6 /* iExpenseApp.swift in Sources */,
+				15551A032A58937A006D22D6 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +307,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewsimo.iExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -328,9 +339,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewsimo.iExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

@@ -12,28 +12,38 @@ struct ContentView: View {
     @StateObject var expenses = Expenses()
     @State private var showingAddExpense = false
     
+    var personalExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Personal" }
+    }
+    
+    var businessExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Business" }
+    }
+    
     var body: some View {
         NavigationView {
             
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        
-                        VStack(alignment: .leading){
-                            
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(item.amount, format: .currency(code: "USD"))
-                        
-                    }
+                
+                if personalExpenses.count > 0 {
                     
+                    Section("Personal") {
+                        
+                        ForEach(personalExpenses) { item in
+                            ExpenseItemView(item: item)
+                        }
+                        .onDelete(perform: removePersonalItems)
+                    }
                 }
-                .onDelete(perform: removeItems)
+                
+                if businessExpenses.count > 0 {
+                    Section("Business") {
+                        ForEach(businessExpenses) { item in
+                            ExpenseItemView(item: item)
+                        }
+                        .onDelete(perform: removeBusinessItems)
+                    }
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
@@ -50,8 +60,23 @@ struct ContentView: View {
         }
     }
     
-    func removeItems(at offset: IndexSet) {
-        expenses.items.remove(atOffsets: offset)
+    func removeItems(at offsets: IndexSet, in items: [ExpenseItem] ) {
+        var normalizedOffsets = IndexSet()
+        for offset in offsets {
+            let item = items[offset]
+            if let index = expenses.items.firstIndex(of: item) {
+                normalizedOffsets.insert(index)
+            }
+        }
+        expenses.items.remove(atOffsets: normalizedOffsets)
+    }
+    
+    func removePersonalItems(at offsets: IndexSet) {
+        removeItems(at: offsets, in: personalExpenses)
+    }
+    
+    func removeBusinessItems(at offsets: IndexSet) {
+        removeItems(at: offsets, in: businessExpenses)
     }
 }
 

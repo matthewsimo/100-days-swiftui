@@ -40,6 +40,12 @@ struct MissionView: View {
                         
                         Text(mission.description)
                         
+                        
+                        Text("Launch Date: \(mission.formattedLaunchDate)")
+                            .font(.headline.bold())
+                            .padding(.vertical, 5)
+                        
+                        
                         Rectangle()
                             .frame(height: 2)
                             .foregroundColor(.lightBackground)
@@ -109,7 +115,7 @@ struct MissionView_Previews: PreviewProvider {
     static let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
     static var previews: some View {
-        MissionView(mission: missions[0], astronauts: astronauts)
+        MissionView(mission: missions[1], astronauts: astronauts)
             .preferredColorScheme(.dark)
     }
 }

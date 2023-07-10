@@ -8,47 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showAsGrid = false
+    
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    let columns = [
+    let listColumns = [
         GridItem(.adaptive(minimum: 150))
     ]
+    
+    let gridColumns = [
+        GridItem(.adaptive(minimum: .infinity))
+    ]
+    
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: showAsGrid ? listColumns : gridColumns) {
                     ForEach(missions) { mission in
                         NavigationLink {
                             MissionView(mission: mission, astronauts: astronauts)
                         } label: {
-                            VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                
-                                VStack {
-                                    
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                    
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
-                                        .foregroundColor(.white.opacity(0.5))
-                                    
-                                }
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
+                            if showAsGrid {
+                                MissionPreviewGrid(mission: mission)
+                            } else {
+                                MissionPreviewList(mission: mission)
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
-                            )
                         }
                     }
                 }
@@ -57,6 +43,17 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            .toolbar {
+                Button {
+                    showAsGrid.toggle()
+                } label: {
+                    Image(
+                        systemName: showAsGrid
+                        ? "rectangle.grid.1x2.fill"
+                        : "square.grid.2x2.fill"
+                    )
+                }
+            }
         }
     }
 }

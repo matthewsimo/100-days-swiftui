@@ -28,8 +28,4 @@ class Activities: ObservableObject {
         items = []
     }
     
-    func updateActivity(_ activity: Activity) {
-        let index = items.firstIndex(of: activity)
-        items[index!] = activity
-    }
 }

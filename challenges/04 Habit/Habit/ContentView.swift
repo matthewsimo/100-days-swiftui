@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var activities = Activities()
+    @StateObject var activities = Activities()
     @State private var showingAddActivity = false
     
     
@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(activities.items) { activity in
                     NavigationLink {
-                        ActivityView(activity: activity)
+                        ActivityView(activities: activities, activity: activity)
                     } label: {
                         HStack {
                             

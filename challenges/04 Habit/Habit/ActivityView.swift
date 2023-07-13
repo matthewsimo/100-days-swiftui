@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityView: View {
-    @ObservedObject var activities = Activities()
+    @StateObject var activities: Activities
     @State var activity: Activity
     
     var body: some View {
@@ -28,10 +28,14 @@ struct ActivityView: View {
                             .font(.subheadline)
                             .padding(.vertical)
                         
-                        List  {
-                            ForEach(activity.log) { logItem in
-                                Text("Completed on \(logItem.formattedDate)")
+                        ForEach(Array(activity.log.enumerated()), id: \.offset) { index, logItem in
+                            VStack (alignment: .leading) {
+                                Text("Log #\(index + 1)")
+                                    .font(.headline)
+                                Text("\(logItem.formattedDate)")
+                                    .font(.title2)
                             }
+                            .padding(.vertical)
                         }
                     }
                     
@@ -42,17 +46,27 @@ struct ActivityView: View {
         }
         .toolbar {
             Button("Log activity") {
-                activity.addToLog()
+                let index = activities.items.firstIndex(of: activity)
+                activity.log.append(Activity.LogItem(date: Date.now))
+                if index != nil {
+                    activities.items[index!] = activity
+                }
             }
-            
-            
             
         }
         .navigationTitle(activity.title)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
 }
 
 #Preview {
-    ActivityView( activities: Activities(), activity: Activity(title: "Activity Title", description: "Activity Description"))
+    var activityOne = Activity(title: "Activity Title 0", description: "Activity Description 0", log: [Activity.LogItem(date: Date.now)])
+    var activityTwo = Activity(title: "Activity Title 1", description: "Activity Description 1")
+    var activities = Activities()
+    if activities.items.isEmpty {
+        activities.items.append(activityOne)
+        activities.items.append(activityTwo)
+    }
+    return ActivityView( activities: activities, activity: activityOne)
 }

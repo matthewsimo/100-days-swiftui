@@ -24,9 +24,4 @@ struct Activity: Identifiable, Codable, Equatable {
     let description: String
     
     var log: [LogItem] = [LogItem]()
-    
-    mutating func addToLog() {
-        let date = Date.now
-        self.log.append(LogItem(date: date))
-    }
 }

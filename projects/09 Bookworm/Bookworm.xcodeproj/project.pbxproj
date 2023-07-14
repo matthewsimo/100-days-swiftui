@@ -16,6 +16,7 @@
 		153CC04D2A61E620006BD4FD /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153CC04C2A61E620006BD4FD /* AddBookView.swift */; };
 		153CC04F2A61E8EF006BD4FD /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153CC04E2A61E8EF006BD4FD /* RatingView.swift */; };
 		153CC0512A61EB5F006BD4FD /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153CC0502A61EB5F006BD4FD /* EmojiRatingView.swift */; };
+		153CC0532A61EE2B006BD4FD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153CC0522A61EE2B006BD4FD /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		153CC04C2A61E620006BD4FD /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		153CC04E2A61E8EF006BD4FD /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		153CC0502A61EB5F006BD4FD /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
+		153CC0522A61EE2B006BD4FD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +65,10 @@
 			children = (
 				153CC0392A61D2FF006BD4FD /* BookwormApp.swift */,
 				153CC03B2A61D2FF006BD4FD /* ContentView.swift */,
-				153CC04E2A61E8EF006BD4FD /* RatingView.swift */,
 				153CC04C2A61E620006BD4FD /* AddBookView.swift */,
+				153CC04E2A61E8EF006BD4FD /* RatingView.swift */,
 				153CC0502A61EB5F006BD4FD /* EmojiRatingView.swift */,
+				153CC0522A61EE2B006BD4FD /* DetailView.swift */,
 				153CC0472A61D66D006BD4FD /* Bookworm.xcdatamodeld */,
 				153CC04A2A61D6EC006BD4FD /* DataController.swift */,
 				153CC03D2A61D302006BD4FD /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				153CC03C2A61D2FF006BD4FD /* ContentView.swift in Sources */,
+				153CC0532A61EE2B006BD4FD /* DetailView.swift in Sources */,
 				153CC04B2A61D6EC006BD4FD /* DataController.swift in Sources */,
 				153CC0512A61EB5F006BD4FD /* EmojiRatingView.swift in Sources */,
 				153CC0492A61D66D006BD4FD /* Bookworm.xcdatamodeld in Sources */,

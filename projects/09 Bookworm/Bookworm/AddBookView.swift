@@ -52,15 +52,29 @@ struct AddBookView: View {
                         newBook.rating = Int16(rating)
                         newBook.genre = genre
                         newBook.review = review
+                        newBook.date = Date.now
                         
                         try? moc.save()
                         dismiss()
                     }
+                    .disabled(isDisabled)
                 }
                 
             }
             .navigationTitle("Add book")
         }
+    }
+    
+    var isDisabled: Bool {
+        if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || author.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || genre.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || review.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return true
+        }
+        
+        if rating < 0 || rating >= genres.count {
+            return true
+        }
+        
+        return false
     }
 }
 

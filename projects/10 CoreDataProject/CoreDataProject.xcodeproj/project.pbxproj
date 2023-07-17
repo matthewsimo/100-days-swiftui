@@ -13,6 +13,9 @@
 		15CA9FD12A65C8140095555F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15CA9FD02A65C8140095555F /* Preview Assets.xcassets */; };
 		15CA9FD82A65C87F0095555F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA9FD72A65C87F0095555F /* DataController.swift */; };
 		15CA9FDB2A65C8B30095555F /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15CA9FD92A65C8B30095555F /* CoreDataProject.xcdatamodeld */; };
+		15CA9FDE2A65CF900095555F /* Singer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA9FDC2A65CF900095555F /* Singer+CoreDataClass.swift */; };
+		15CA9FDF2A65CF900095555F /* Singer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA9FDD2A65CF900095555F /* Singer+CoreDataProperties.swift */; };
+		15CA9FE12A65D0DC0095555F /* FilteredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA9FE02A65D0DC0095555F /* FilteredListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		15CA9FD02A65C8140095555F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15CA9FD72A65C87F0095555F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		15CA9FDA2A65C8B30095555F /* CoreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataProject.xcdatamodel; sourceTree = "<group>"; };
+		15CA9FDC2A65CF900095555F /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		15CA9FDD2A65CF900095555F /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		15CA9FE02A65D0DC0095555F /* FilteredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +61,11 @@
 		15CA9FC82A65C8110095555F /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				15CA9FDC2A65CF900095555F /* Singer+CoreDataClass.swift */,
+				15CA9FDD2A65CF900095555F /* Singer+CoreDataProperties.swift */,
 				15CA9FC92A65C8110095555F /* CoreDataProjectApp.swift */,
 				15CA9FCB2A65C8110095555F /* ContentView.swift */,
+				15CA9FE02A65D0DC0095555F /* FilteredListView.swift */,
 				15CA9FD72A65C87F0095555F /* DataController.swift */,
 				15CA9FD92A65C8B30095555F /* CoreDataProject.xcdatamodeld */,
 				15CA9FCD2A65C8140095555F /* Assets.xcassets */,
@@ -144,7 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15CA9FCC2A65C8110095555F /* ContentView.swift in Sources */,
+				15CA9FDF2A65CF900095555F /* Singer+CoreDataProperties.swift in Sources */,
 				15CA9FD82A65C87F0095555F /* DataController.swift in Sources */,
+				15CA9FE12A65D0DC0095555F /* FilteredListView.swift in Sources */,
+				15CA9FDE2A65CF900095555F /* Singer+CoreDataClass.swift in Sources */,
 				15CA9FDB2A65C8B30095555F /* CoreDataProject.xcdatamodeld in Sources */,
 				15CA9FCA2A65C8110095555F /* CoreDataProjectApp.swift in Sources */,
 			);
